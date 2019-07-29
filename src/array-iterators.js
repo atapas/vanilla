@@ -127,11 +127,13 @@ const expenseMapped = marriedCustomers.map((marriedCustomer) => {
 });
 
 // reduce to sum up the total expense of all married customers
-const totalExpenseMarriedCustomer = expenseMapped.reduce((accum, expense) => {
+const totalExpenseMarriedCustomer = expenseMapped.reduce(
+   (accum, expense) => {
    return accum + expense;
 }, 0);
 
-console.log('Total Expense of Married Customers in INR: ', totalExpenseMarriedCustomer);
+console.log('Total Expense of Married Customers in INR: '
+, totalExpenseMarriedCustomer);
 
 // Orchestrating together
 const OrchestratedTotal = customers
