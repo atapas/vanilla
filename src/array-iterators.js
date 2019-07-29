@@ -8,7 +8,7 @@ let customers = [
       'married': true,
       'age': 32,
       'expense': 500,
-      'purchased': ['Shampoo', 'Toys', 'Books']
+      'purchased': ['Shampoo', 'Toys', 'Book']
    },
    {
       'id': 002,
@@ -28,7 +28,7 @@ let customers = [
       'married': true,
       'age': 22,
       'expense': 1500,
-      'purchased': ['Lipstik', 'Nail Polish', 'Bag', 'Books']
+      'purchased': ['Lipstik', 'Nail Polish', 'Bag', 'Book']
    },
    {
       'id': 004,
@@ -38,7 +38,7 @@ let customers = [
       'married': true,
       'age': 82,
       'expense': 90,
-      'purchased': ['Books']
+      'purchased': ['Book']
    },
    {
       'id': 005,
@@ -58,17 +58,17 @@ const seniorCustomers = customers.filter((customer) => {
 });
 console.log('[filter] Senior Customers = ', seniorCustomers);
 
-// map example - Build Customer Data with initial and full name
+// map example - Build Customer Data with title and full name
 const customersWithFullName = customers.map((customer) => {
-   let initial = '';
+   let title = '';
    if(customer.gender === 'M') {
-      initial = 'Mr.';
+      title = 'Mr.';
    } else if(customer.gender === 'F' && customer.married) {
-      initial = 'Mrs.';
+      title = 'Mrs.';
    } else {
-      initial = 'Miss';
+      title = 'Miss';
    }
-   customer['full_name'] = initial 
+   customer['full_name'] = title 
                            + " " 
                            + customer.f_name 
                            + " " 
@@ -78,16 +78,20 @@ const customersWithFullName = customers.map((customer) => {
 console.log('[map] Customers With Full Name = '
                , customersWithFullName);
 
-// reduce example - Get the Average age of the Customers who purchased 'Books'
+// reduce example - Get the Average Age of 
+// Customers who purchased 'Book'
 let count = 0;
-const total = customers.reduce((accumulator, customer, currentIndex, array) => {
-   if(customer.purchased.includes('Books')) {
-      accumulator = accumulator + customer.age;
-      count = count + 1;
-   }
-   return (accumulator);
-}, 0);
-console.log('[reduce] Customer Avg age Purchased Books:', Math.floor(total/count));
+const total = customers.reduce(
+   (accumulator, customer, currentIndex, array) => {
+      if(customer.purchased.includes('Book')) {
+         accumulator = accumulator + customer.age;
+         count = count + 1;
+      }
+      return (accumulator);
+   }, 
+0);
+console.log('[reduce] Customer Avg age Purchased Book:'
+               , Math.floor(total/count));
 
 // some example - Check if the condition is satisfied for at least one of the
 // elements in the Array
@@ -105,10 +109,10 @@ console.log('[find] Found Young Customer(Age < 10):', foundYoungCustomer);
 
 // every example - Check if the condition is satisfied for all of the
 // elements in the Array
-const allCustomersWithPurchase = customers.every((customer) => {
-   return (customer.purchased.length >= 1);
+const isThereWindowShopper = customers.every((customer) => {
+   return (customer.purchased.length === 0);
 })
-console.log('[every] All Customers With Purchase:', allCustomersWithPurchase);
+console.log('[every] Is there a window shopper?', isThereWindowShopper);
 
 // combine map() reduce() filter() - Get the total amount spent by Married customers
 
