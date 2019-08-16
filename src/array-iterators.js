@@ -1,7 +1,7 @@
 // Customer object
 let customers = [
    {
-      'id': 001,
+      'id': '001',
       'f_name': 'Abby',
       'l_name': 'Thomas',
       'gender': 'M',
@@ -11,7 +11,7 @@ let customers = [
       'purchased': ['Shampoo', 'Toys', 'Book']
    },
    {
-      'id': 002,
+      'id': '002',
       'f_name': 'Jerry',
       'l_name': 'Tom',
       'gender': 'M',
@@ -21,7 +21,7 @@ let customers = [
       'purchased': ['Stick', 'Blade']
    },
    {
-      'id': 003,
+      'id': '003',
       'f_name': 'Dianna',
       'l_name': 'Cherry',
       'gender': 'F',
@@ -31,7 +31,7 @@ let customers = [
       'purchased': ['Lipstik', 'Nail Polish', 'Bag', 'Book']
    },
    {
-      'id': 004,
+      'id': '004',
       'f_name': 'Dev',
       'l_name': 'Currian',
       'gender': 'M',
@@ -41,7 +41,7 @@ let customers = [
       'purchased': ['Book']
    },
    {
-      'id': 005,
+      'id': '005',
       'f_name': 'Maria',
       'l_name': 'Gomes',
       'gender': 'F',
@@ -111,7 +111,7 @@ console.log('[find] Found Young Customer(Age < 10):', foundYoungCustomer);
 // elements in the Array
 const isThereWindowShopper = customers.every((customer) => {
    return (customer.purchased.length === 0);
-})
+});
 console.log('[every] Is there a window shopper?', isThereWindowShopper);
 
 // combine map() reduce() filter() - Get the total amount spent by Married customers
